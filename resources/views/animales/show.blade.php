@@ -3,9 +3,26 @@
     Zoológico
 @endsection
 @section('contenido')
-    @foreach($animales as $animal)
-        <ul>
-            <li>{{$animal}}</li>
-        </ul>
-    @endforeach
+ <div class="row">
+<div class="col-sm-3">
+<img src="{{asset('assets/imagenes')}}/{{$animal['imagen']}}" style="height:400px; width: 400px;"/>
+</div>
+<div class="col-sm-9">
+    <p class="h3">{{$animal['especie']}}</p>
+    <p class="h5">Peso</p>
+    <p>{{$animal['peso']}} Kg</p>
+    <p class="h3">Altura</p>
+    <p>{{$animal['altura']}} cm</p>
+    <p class="h5">Descripcion</p>
+    <p>{{$animal['descripcion']}}</p>
+    <p class="h5">Revisiones</p>
+    
+    <div>
+        <a href="url"><button type="button" class="btn btn-primary">Editado</button></a>
+        <a href="url"><button type="button" class="btn btn-secondary">Volver al Listado</button></a>
+
+</div>
+</div>
+  
 @endsection
+
