@@ -22,4 +22,8 @@ Route::get('animales/{animales}', [\App\Http\Controllers\AnimalController::class
 
 Route::get('animales/{animal}/edit', [\App\Http\Controllers\AnimalController::class, 'edit'])->name('animales.edit');
 
+Route::post('animales', [\App\Http\Controllers\AnimalController::class, 'store'])->name('animales.store');
+
+Route::put('animales/{animal}', [\App\Http\Controllers\AnimalController::class, 'update'])->name('animales.update');
+
 

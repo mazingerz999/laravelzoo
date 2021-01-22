@@ -8,10 +8,10 @@
  <div class="offset-md-3 col-md-6">
  <div class="card">
  <div class="card-header text-center">
- Añadir animal
+     <h2> Añadir animal</h2>
  </div>
  <div class="card-body" style="padding:30px">
-     <form>
+     <form method="post" action="{{route('animales.store')}}">
  {{-- TODO: Abrir el formulario e indicar el método POST --}}
  {{-- TODO: Protección contra CSRF --}}
  <div class="form-group">
@@ -47,8 +47,10 @@
  <textarea name="descripcion" id="descripcion" class="form-control" rows="3"></textarea>
  </div>
  <div class="form-group">
-     
- {{-- TODO: Completa el input para la imagen --}}
+{{-- TODO: Completa el input para la alimentación--}}
+ <label for="imagen">Imagen</label>
+ <input type="file" name="imagen" id="imagen" class="form-control" required>
+ </div>
  </div>
  <div class="form-group text-center">
  <button type="submit" class="btn btn-success" style="padding:8px 100px;margin-top:25px;">
