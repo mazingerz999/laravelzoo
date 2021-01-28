@@ -19,8 +19,8 @@
     <p class="h5">Revisiones</p>
     
     <div>
-        <a href="url"><button type="button" class="btn btn-warning">Editado</button></a>
-        <a href="url"><button type="button" class="btn btn-secondary">Volver al Listado</button></a>
+        <a href="{{route('animales.edit' , $animal )}}"><button type="button" class="btn btn-warning">Editado</button></a>
+        <a href="{{route('animales.index')}}"><button type="button" class="btn btn-secondary">Volver al Listado</button></a>
 
 </div>
 </div>

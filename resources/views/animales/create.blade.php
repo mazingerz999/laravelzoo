@@ -11,35 +11,39 @@
      <h2> Añadir animal</h2>
  </div>
  <div class="card-body" style="padding:30px">
-     <form method="post" action="{{route('animales.store')}}">
  {{-- TODO: Abrir el formulario e indicar el método POST --}}
+     
+ <form method="post" action="{{route('animales.store')}}" enctype="multipart/form-data">
+ 
  {{-- TODO: Protección contra CSRF --}}
+ @csrf 
+
  <div class="form-group">
      
  <label for="especie">Especie</label>
- <input type="text" name="especie" id="especie" class="form-control" required>
+ <input type="text" name="especie" id="especie"  class="form-control" required>
  </div>
  <div class="form-group">
 
  <label for="peso">Peso</label>
- <input type="number" name="peso" id="peso" class="form-control" required>
+ <input type="number" name="peso" id="peso"  class="form-control" required>
  </div>
  <div class="form-group">
 
  <label for="altura">Altura</label>
- <input type="text" name="altura" id="altura" class="form-control" required>
+ <input type="text" name="altura" id="altura"  class="form-control" required>
  </div>
  <div class="form-group">
 
  {{-- TODO: Completa el input para la fecha de nacimiento --}}
  <label for="fecha">Fecha</label>
- <input type="date" name="fecha" id="fecha" class="form-control" required>
+ <input type="date" name="fecha" id="fecha"  class="form-control" required>
  </div>
  <div class="form-group">
      
  {{-- TODO: Completa el input para la alimentación--}}
  <label for="alimentacion">Alimentacion</label>
- <input type="text" name="alimentacion" id="alimentacion" class="form-control" required>
+ <input type="text" name="alimentacion" id="alimentacion"  class="form-control" required>
  </div>
  <div class="form-group">
      
@@ -49,7 +53,7 @@
  <div class="form-group">
 {{-- TODO: Completa el input para la alimentación--}}
  <label for="imagen">Imagen</label>
- <input type="file" name="imagen" id="imagen" class="form-control" required>
+ <input type="file" name="imagen"  id="imagen" class="form-control" required>
  </div>
  </div>
  <div class="form-group text-center">
@@ -62,5 +66,4 @@
  </div>
  </div>
  </div>
-</div>
 @endsection

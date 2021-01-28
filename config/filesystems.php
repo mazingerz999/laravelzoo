@@ -34,7 +34,12 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
+        
+ 'animales'=>[
+        'driver'=>'local',
+        'root'=>public_path('assets/imagenes'),
+        'visibility'=>'public',
+    ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -68,5 +73,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
+    
+   
 
 ];

@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Animal extends Model
-{
+class Animal extends Model {
+
     use HasFactory;
-    protected $table="Animales";
+
     
-    public function getEdad()
-{
- $fechaFormateada=Carbon::parse($this->fechaNacimiento);
- return $fechaFormateada->diffInYears(Carbon::now());
-}
+    protected $table = "Animales";
+
+    protected $guarded=[];//con este array vale para evitar el error del token que viene de el campo de seguridad
+   // protected $filable=['especie'...] //asi hasta todos los campos que queremos
+    
+    public function getEdad() {
+        $fechaFormateada = Carbon::parse($this->fechaNacimiento);
+        return $fechaFormateada->diffInYears(Carbon::now());
+    }
+
 }
