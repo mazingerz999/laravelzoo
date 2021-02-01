@@ -26,6 +26,7 @@
     <p class="card-text">- Nacimiento: {{$animal->fechaNacimiento}}</p>
     <p class="card-text">- Alimentacion: {{$animal->alimentacion}}</p>
     <p class="card-text">- Altura: {{$animal->altura}}m</p>
+   <p class="card-text">- Revisiones: {{count($animal->revisiones)}}</p>
    
     <!-- Esto es una ruta que te lleva a cada animal -->
     <a href="{{route('animales.show' , $animal )}}"  class="btn btn-success">{{$animal->especie}}</a>

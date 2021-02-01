@@ -114,6 +114,7 @@ Son diurnos y viven preferentemente en el suelo. Forman grupos numerosos que se 
  $a = new Animal();
  $a->especie = $animal['especie'];
  $a->peso = $animal['peso'];
+ $a->slug = \Illuminate\Support\Str::slug($animal['especie']) ;
  $a->altura = $animal['altura'];
  $a->fechaNacimiento = $animal['fechaNacimiento'];
  $a->imagen = $animal['imagen'];

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimalesTable extends Migration
+class CreateRevisionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,14 @@ class CreateAnimalesTable extends Migration
     {
         Schema::create('revisiones', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha')->nullable();
-            $table->longText('descripcion')->nullable();
-
-
-    });
+            $table->date("fecha");
+            $table->longText("descripcion");
+            $table->unsignedBigInteger("animal_id");
+            $table->foreign("animal_id")->references("id")->on("animales");
+            $table->timestamps();
+        });
     }
+
     /**
      * Reverse the migrations.
      *

@@ -17,9 +17,10 @@
     <p class="h5">Descripcion</p>
     <p>{{$animal->descripcion}}</p>
     <p class="h5">Revisiones</p>
-    
+    <p>{{$animal->count(revisiones)}}</p>
     <div>
         <a href="{{route('animales.edit' , $animal )}}"><button type="button" class="btn btn-warning">Editado</button></a>
+        <!--<a href="{{route('revisiones.create' , $animal )}}"><button type="button" class="btn btn-success">Añadir una revision</button></a>-->
         <a href="{{route('animales.index')}}"><button type="button" class="btn btn-secondary">Volver al Listado</button></a>
 
 </div>
