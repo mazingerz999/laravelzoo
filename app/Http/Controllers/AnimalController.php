@@ -17,15 +17,15 @@ class AnimalController extends Controller {
         return view("animales.create");
     }
 
-    public function show($animal) {
-        $aux = Animal::findorFail($animal);
-        return view("animales.show", ["animal" => $aux]);
+    public function show(Animal $animal) {
+        
+        return view("animales.show", ["animal" => $animal]);
         //  return view("animales.show", ['animal'=> $this->animales[$animal]]);
     }
 
-    public function edit($animal) {
-        $aux = Animal::find($animal);
-        return view("animales.edit", ["animal" => $aux]);
+    public function edit(Animal $animal) {
+        
+        return view("animales.edit", ["animal" => $animal]);
     }
 
     public function store(Request $request) {
@@ -55,18 +55,18 @@ Esta es la mejor forma de hacerlo:*/
         return redirect()->route("animales.show", $animal->id)->with("mensaje", "Ha habido un error");
     }
 
-    public function update(Request $request,$animal) {
+    public function update(Request $request, Animal $animal) {
          
-        $aux = Animal::findorFail($animal);
-        $aux->especie=$request->especie;
-        $aux->peso= $request->peso;
-        $aux->altura=$request->altura;
-        $aux->fechaNacimiento= $request->fecha;
-        $aux->imagen= $request->imagen->store('', 'animales');
-        $aux->alimentacion=$request->alimentacion;
-        $aux->descripcion = $request->descripcion;
-        $aux->save();
-        return view("animales.show", ["animal" => $aux])->with("mensaje", "Ha habido un error");
+        $$animal->especie=$request->especie;
+        $$animal->slug=Str::slug($request->especie);
+        $$animal->peso= $request->peso;
+        $$animal->altura=$request->altura;
+        $$animal->fecha= $request->fecha;
+        $$animal->imagen= $request->imagen->store('', 'animales');
+        $$animal->alimentacion=$request->alimentacion;
+        $$animal->descripcion = $request->descripcion;
+        $$animal->save();
+        return view("animales.show", ["animal" => $$animal])->with("mensaje", "Ha habido un error");
         
       
     }

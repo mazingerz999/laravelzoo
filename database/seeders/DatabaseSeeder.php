@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use \App\Models\Cuidador;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,16 +15,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-
+ Cuidador::factory(20)->create();
+        
  DB::table('animales')->delete();
  $this->call(AnimalSeeder::class);
  
  DB::table('revisiones')->delete();
  $this->call(RevisionSeeder::class);
    
-  DB::table('users')->delete();
+ DB::table('users')->delete();
  $this->call(UserSeeder::class);
  \App\Models\User::factory(5)->create();
+ 
 
+
+ 
     }
 }

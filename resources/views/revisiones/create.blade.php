@@ -14,10 +14,9 @@
  {{-- TODO: Abrir el formulario e indicar el método POST --}}
      
  <form method="post" action="{{route('revisiones.store', $animal)}}" enctype="multipart/form-data">
- 
  {{-- TODO: Protección contra CSRF --}}
 @csrf 
-@method('put')
+
  <div class="form-group">
      
  {{-- TODO: Completa el input para la fecha de revision --}}
