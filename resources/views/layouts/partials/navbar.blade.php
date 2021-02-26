@@ -20,6 +20,7 @@
         <form class="d-flex">
           <input id="busqueda" class="form-control mr-sm-3" type="text" placeholder="Buscar" aria-label="Buscar">
         </form>
+   
         
         <ul class="navbar-nav navbar-right">
           <li class="nav-item">
@@ -50,6 +51,37 @@
 </div>
 </nav>
 
-
+   <script>
+  $( function() {
+    function log( message ) {
+      $( "<div>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+ 
+    $( "#busqueda" ).autocomplete({
+      source: function( query, result ) {
+        $.ajax( {
+          type: 'POST',
+          url: '{{url("animales/busquedaAjax")}}',
+          dataType: "json",
+          data: 
+           {"_token": "{{ csrf_token() }}",
+            "buscador": query['term']},
+          success: function( data ) {
+            result( data );
+          }
+        });
+      },
+     position:{
+         my: "2left+0 top+8"
+     },
+      select: function( event, ui ) {
+        window.location=window.location.origin+ "/animales/" + generateSlug(ui.item.value);
+        
+        //log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+      }
+    } );
+  } );
+  </script>
 
 

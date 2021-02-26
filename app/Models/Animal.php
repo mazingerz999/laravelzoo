@@ -1,10 +1,19 @@
 <?php
 
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
+/**
+ * Class Animal
+ * @property string $especie
+ * @property string $altura
+ * @property string $peso
+ * @property string $alimentacion
+ * @property string $fechaNacimiento
+ */
 class Animal extends Model {
 
     use HasFactory;

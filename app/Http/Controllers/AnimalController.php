@@ -57,18 +57,26 @@ Esta es la mejor forma de hacerlo:*/
 
     public function update(Request $request, Animal $animal) {
          
-        $$animal->especie=$request->especie;
-        $$animal->slug=Str::slug($request->especie);
-        $$animal->peso= $request->peso;
-        $$animal->altura=$request->altura;
-        $$animal->fecha= $request->fecha;
-        $$animal->imagen= $request->imagen->store('', 'animales');
-        $$animal->alimentacion=$request->alimentacion;
-        $$animal->descripcion = $request->descripcion;
-        $$animal->save();
-        return view("animales.show", ["animal" => $$animal])->with("mensaje", "Ha habido un error");
+        $animal->especie=$request->especie;
+        $animal->slug=Str::slug($request->especie);
+        $animal->peso= $request->peso;
+        $animal->altura=$request->altura;
+        $animal->fecha= $request->fecha;
+        $animal->imagen= $request->imagen->store('', 'animales');
+        $animal->alimentacion=$request->alimentacion;
+        $animal->descripcion = $request->descripcion;
+        $animal->save();
+        return view("animales.show", ["animal" => $animal])->with("mensaje", "Ha habido un error");
         
       
+    }
+    public function buscar(Request $request) {
+         
+       $animales = Animal::where("especie", "like", "%".$request->buscador ."%")->pluck('especie');
+        
+        return response()->json($animales);
+        
+          
     }
 
 }
